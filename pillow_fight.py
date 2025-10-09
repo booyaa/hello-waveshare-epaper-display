@@ -7,25 +7,31 @@ Eventually this will become a helper that allows you to test scripts before inte
 """
 
 import os
+import sys
 from PIL import Image, ImageDraw, ImageFont
-
-def hello_world():
-    picdir = os.path.join((os.path.dirname(os.path.realpath(__file__))), 'lib', 'waveshare-epd', 'RaspberryPi_JetsonNano', 'python','pic')
-
-    font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 20)
-    image = Image.new('1', (250, 122), 255)
-    draw = ImageDraw.Draw(image)
-    draw.text((10, 10), "Hello, World!", font=font, fill=0)
-    draw.text((10, 30), "1234567890123456789", font=font, fill=0)
-
-    return image
+import helpers
 
 if __name__ == "__main__":
-    image = hello_world()
-    file_name ="temp_pillow_fight_output.bmp"
+    if len(sys.argv) < 2:
+        print("Usage: python3 pillow_fight.py <script_to_import>")
+        print("Example: python3 pillow_fight.py hello_world.py")
+        sys.exit(1)
+
+    module_name = "main"
+    script_to_import = sys.argv[1]
+
+    module = helpers.load_module_safely(module_name, script_to_import)
+
+    if hasattr(module, 'main'):
+        image = module.main()
+    else:
+        print("The module must have a 'hello_world' or 'main' function.")
+        sys.exit(1)
+
+    file_name = "temp_pillow_fight.bmp"
     image.save(file_name)
     # Use ImageMagick's sixel support for faster display in terminal if available
-    if os.name == 'posix' and os.system("which magick") == 0 :
+    if os.name == 'posix' and os.system("which magick 2>&1 > /dev/null") == 0 :
         os.system(f"magick {file_name} sixel:-")
     else:
         image.show() # this may not work on all systems
