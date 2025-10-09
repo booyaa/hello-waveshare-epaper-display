@@ -4,7 +4,6 @@ import sys
 import os
 import logging
 import time
-from PIL import Image,ImageDraw,ImageFont
 import helpers
 
 picdir = os.path.join((os.path.dirname(os.path.realpath(__file__))), 'lib', 'waveshare-epd', 'RaspberryPi_JetsonNano', 'python','pic')
@@ -27,17 +26,12 @@ def main():
         sys.exit(1)
 
     try:
-        # font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 20)
-
         logging.info("Initialize the display")
         epd = epd2in13b_V4.EPD()
         epd.init()
         epd.Clear()
 
         logging.info("Create a new bitmap")
-        # image = Image.new('1', (250, 122), 255)  # 255: clear the frame
-        # draw = ImageDraw.Draw(image)
-        # draw.text((10, 10), "Hello, World!", font=font, fill=0)
         image = module.main()
 
         logging.info("Push the bitmap to the display")
