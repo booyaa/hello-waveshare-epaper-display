@@ -14,8 +14,9 @@ def main():
     font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 20)
     image = Image.new('1', (250, 122), 255)
     draw = ImageDraw.Draw(image)
-    draw.text((10, 10), "Hello, World!", font=font, fill=0)
-    draw.text((10, 30), "1234567890123456789", font=font, fill=0)
+    draw.text((1, 1), "Hello, World!", font=font, fill=0)
+    for i in range(1, 5, 1):
+        draw.text((1, 20 * i), "1234567890123456789", font=font, fill=0)
 
     return image
 
