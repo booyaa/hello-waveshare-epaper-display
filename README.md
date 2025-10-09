@@ -1,6 +1,7 @@
 # Waveshare e-Paper Display
 
-I've got a 2.13 inch e-Paper [HAT][ws_main] by Waveshare. I've created this repo for experimenting on the best ways to push data onto it.
+I've got a 2.13 inch e-Paper [HAT][ws_main] by Waveshare. I've created this
+repo for experimenting on the best ways to push data onto it.
 
 ## Specification
 
