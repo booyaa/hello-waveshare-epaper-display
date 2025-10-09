@@ -30,6 +30,26 @@ uv sync # pull in deps - if you're not using uv then use `pip install -r require
 
 Try out examples!
 
+## Creating new graphics without an e-Paper
+
+If you've been playing around with e-Paper displays you'll not very quick. On
+average refresh the display can take up to 50 seconds on a Pi Zero 2 (with all
+4 cores enabled).
+
+Or maybe you want to develop on a different computer to the one that runs the
+code. Since most of the heavy lifting is done by Pillow all you need to do is
+modularise your code and with a bit of importlib magick you can develop
+"offline" and reuse the same script when you go "live".
+
+An example of how to do this can be found in the following scripts:
+
+- hello_world.py - This script is pure Pillow and has a single function called
+main that will return an image. You don't run this script directly, instead you
+wrap it in a stand alone script like main.py
+- main.py - This script will drive the e-Paper display using the image generated
+by the hello_world script.
+- pillow_fight.py - This script to test your new Pillow scripts
+
 ## Troubleshooting
 
 ### Verifying device works
