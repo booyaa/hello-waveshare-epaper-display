@@ -15,7 +15,8 @@ def main():
     image = Image.new('1', (250, 122), 255)
     draw = ImageDraw.Draw(image)
     draw.text((1, 1), "Hello, World!", font=font, fill=0)
-    for i in range(1, 5, 1):
+    # FIXME: 5 lines does not display on offline mode, but does on e-Paper display
+    for i in range(1, 6, 1):
         draw.text((1, 20 * i), "1234567890123456789", font=font, fill=0)
 
     return image
