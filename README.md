@@ -22,9 +22,13 @@ repo for experimenting on the best ways to push data onto it.
 ```sh
 git clone git@github.com:booyaa/hello-waveshare-epaper-display.git
 cd hello-waveshare-epaper-display
+git submodule init
 git submodule update # see troubleshooting if this fails
 uv venv # initialise environment
 # follow on screen instructons for your operating system to activate environment
+# if you're working "offline" (not connected to ePaper display) you may prefer to install just the graphics modules
+uv pip install pillow "qrcode[pil]"
+# otherwise use this line
 uv sync # pull in deps - if you're not using uv then use `pip install -r requirements.txt'
 ```
 
