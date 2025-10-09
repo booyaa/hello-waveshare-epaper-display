@@ -25,7 +25,7 @@ if __name__ == "__main__":
     if hasattr(module, 'main'):
         image = module.main()
     else:
-        print("The module must have a 'hello_world' or 'main' function.")
+        print("The module must have a 'main' function.")
         sys.exit(1)
 
     file_name = "temp_pillow_fight.bmp"
