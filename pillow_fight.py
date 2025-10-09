@@ -24,7 +24,7 @@ if __name__ == "__main__":
     image = hello_world()
     file_name ="temp_pillow_fight_output.bmp"
     image.save(file_name)
-    # check if we are running on MacOS or Linux based operating system
+    # Use ImageMagick's sixel support for faster display in terminal if available
     if os.name == 'posix' and os.system("which magick") == 0 :
         os.system(f"magick {file_name} sixel:-")
     else:
