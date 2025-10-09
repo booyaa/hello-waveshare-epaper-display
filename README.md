@@ -2,6 +2,10 @@
 
 I've got a 2.13 inch e-Paper [HAT][ws_main] by Waveshare. I've created this repo for experimenting on the best ways to push data onto it.
 
+## Specification
+
+- Resolution: 250 x 122 pixels
+
 ## Resources
 
 - Waveshare [wiki][ws_main] page for the hat
