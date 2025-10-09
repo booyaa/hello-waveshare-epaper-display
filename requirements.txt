@@ -2,6 +2,7 @@ colorzero==2.0
 gpiozero==2.0.1
 lgpio==0.2.2.0
 pillow==11.3.0
+qrcode==8.2
 rpi-lgpio==0.6
 setuptools==80.9.0
 spidev==3.8
