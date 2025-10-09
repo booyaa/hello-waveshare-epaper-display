@@ -15,9 +15,9 @@ def main():
     image = Image.new('1', (250, 122), 255)
     draw = ImageDraw.Draw(image)
     draw.text((1, 1), "Hello, World!", font=font, fill=0)
-    # FIXME: 5 lines does not display on offline mode, but does on e-Paper display. Same goes for column length.
+    # if rendering offline and you can't see all the lines, it's probably vscode terminal
     for i in range(1, 6, 1):
-        draw.text((1, 20 * i), "123456789012345678901234", font=font, fill=0)
+        draw.text((1, 20 * i), "1234567890123456789012", font=font, fill=0)
 
     return image
 
