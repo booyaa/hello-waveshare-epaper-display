@@ -15,8 +15,14 @@ I've got a 2.13 inch e-Paper [HAT][ws_main] by Waveshare. I've created this repo
 > [troubleshooting](#troubleshooting) section below.
 
 ```sh
-git clone
+git clone git@github.com:booyaa/hello-waveshare-epaper-display.git
+cd hello-waveshare-epaper-display
+uv venv # initialise environment
+# follow on screen instructons for your operating system to activate environment
+uv sync # pull in deps - if you're not using uv then use `pip install -r requirements.txt'
 ```
+
+Try out examples!
 
 ## Troubleshooting
 
