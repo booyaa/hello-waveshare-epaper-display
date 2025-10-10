@@ -21,8 +21,7 @@ def main():
     image_qr_code = qr.make_image(fill_color="black", back_color="white")
     image_qr_code = image_qr_code.resize((125, 125)) # type: ignore
 
-    picdir = os.path.join((os.path.dirname(os.path.realpath(__file__))), 'lib', 'waveshare-epd', 'RaspberryPi_JetsonNano', 'python','pic')
-    image = Image.open(os.path.join(picdir, '2in13b_V4b.bmp'))
+    image = Image.open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'assets', 'snooze.bmp'))
     image.paste(image_qr_code, (130, 0))
 
     return image
