@@ -79,3 +79,8 @@ Depending on how you authenticate to GitHub you may need to create a ssh key and
 <!-- linkies -->
 [ws_main]: https://www.waveshare.com/wiki/2.13inch_e-Paper_HAT_Manual#Resources
 [ws_setup]: https://www.waveshare.com/wiki/2.13inch_e-Paper_HAT_Manual#Python
+
+
+## Copyright Notice
+
+Mark Sta Ana Copyright 2025
