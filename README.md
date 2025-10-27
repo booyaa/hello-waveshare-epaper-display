@@ -62,13 +62,17 @@ Use this set up to verify you have a working display before proceeding to exampl
 
 I'm looking to simplify this, the original [instructions][ws_setup] are both confusing and don't work. Also they're using the terrible practice of install python modules as system dependencies. Always use virtual environments unless you're in a container!`</soapbox>`.
 
+> [!INFO]
+> Last tested with Raspberry Pi Zero on Trixie
+
 ```sh
 git clone https://github.com/waveshare/e-Paper.git
 cd e-Paper/
+sudo apt install python3-dev
 uv venv --python 3.13 # tested against 3.13.6
 source .venv/bin/activate
 sudo apt install swig liblgpio-dev
-uv pip install pillow spidev rpi-lgpio gpiozero
+uv pip install pillow numoy spidev rpi-lgpio gpiozero
 python RaspberryPi_JetsonNano/python/examples/epd_2in13b_V4_test.py
 ```
 
