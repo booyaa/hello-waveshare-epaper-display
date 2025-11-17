@@ -3,6 +3,10 @@
 I've got a 2.13 inch e-Paper [HAT][ws_main] by Waveshare. I've created this
 repo for experimenting on the best ways to push data onto it.
 
+## Tasks
+
+- [ ] - Pillow fight needs to be able to handle black and red images
+
 ## Specification
 
 - Resolution: 250 x 122 pixels
@@ -47,7 +51,7 @@ modularise your code and with a bit of importlib magick you can develop
 
 An example of how to do this can be found in the following scripts:
 
-- hello_world.py - This script is pure Pillow and has a single function called
+- hello_world.epd.py - This script is pure Pillow and has a single function called
 main that will return an image. You don't run this script directly, instead you
 wrap it in a stand alone script like main.py
 - main.py - This script will drive the e-Paper display using the image generated
@@ -80,11 +84,10 @@ python RaspberryPi_JetsonNano/python/examples/epd_2in13b_V4_test.py
 
 Depending on how you authenticate to GitHub you may need to create a ssh key and add it to [GitHub](https://github.com/settings/keys). That or switch the submodule to HTTP (if you're using the GitHub CLI to authenticate).
 
-<!-- linkies -->
-[ws_main]: https://www.waveshare.com/wiki/2.13inch_e-Paper_HAT_Manual#Resources
-[ws_setup]: https://www.waveshare.com/wiki/2.13inch_e-Paper_HAT_Manual#Python
-
-
 ## Copyright Notice
 
 Mark Sta Ana Copyright 2025
+
+<!-- linkies -->
+[ws_main]: https://www.waveshare.com/wiki/2.13inch_e-Paper_HAT_Manual#Resources
+[ws_setup]: https://www.waveshare.com/wiki/2.13inch_e-Paper_HAT_Manual#Python
