@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 def main():
     module_name = "main"
-    script_to_import = "qrcode_embed.py"
+    script_to_import = "qrcode_embed.epd.py"
     module = helpers.load_module_safely(module_name, script_to_import)
 
     if not hasattr(module, 'main'):

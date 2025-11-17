@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 def main():
     module_name = "main"
-    script_to_import = "hello_world.py"
+    script_to_import = "hello_world.epd.py"
     module = helpers.load_module_safely(module_name, script_to_import)
 
     if not hasattr(module, 'main'):

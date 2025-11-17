@@ -14,7 +14,7 @@ import helpers
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python3 pillow_fight.py <script_to_import>")
-        print("Example: python3 pillow_fight.py hello_world.py")
+        print("Example: python3 pillow_fight.py hello_world.epd.py")
         sys.exit(1)
 
     module_name = "main"
@@ -32,6 +32,8 @@ if __name__ == "__main__":
     image.save(file_name)
     # Use ImageMagick's sixel support for faster display in terminal if available
     if os.name == 'posix' and os.system("which magick 2>&1 > /dev/null") == 0 :
+        print("\n") # VS Code Terminal eats up images
         os.system(f"magick {file_name} sixel:-")
+        print("\n") # VS Code Terminal eats up images
     else:
         image.show() # this may not work on all systems
