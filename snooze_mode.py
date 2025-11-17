@@ -35,7 +35,11 @@ def main():
         image = module.main()
 
         logging.info("Push the bitmap to the display")
-        epd.display(epd.getbuffer(image),epd.getbuffer(image))
+
+        # how to make the image black instead of red
+        from PIL import Image, ImageDraw, ImageFont
+        image2 = Image.new('1', (250, 122), 255) # create blank 1-bit white image
+        epd.display(epd.getbuffer(image),epd.getbuffer(image2)) # black, red
 
         logging.info("Goto Sleep...")
         epd.sleep()
