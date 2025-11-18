@@ -19,11 +19,12 @@ if __name__ == "__main__":
 
     module_name = "main"
     script_to_import = sys.argv[1]
+    params = sys.argv[2:]  # Additional parameters can be passed to the main function if needed
 
     module = helpers.load_module_safely(module_name, script_to_import)
 
     if hasattr(module, 'main'):
-        image = module.main()
+        image = module.main(*params)
     else:
         print("The module must have a 'main' function.")
         sys.exit(1)
