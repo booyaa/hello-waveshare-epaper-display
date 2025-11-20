@@ -27,4 +27,6 @@ def main():
     return image
 
 if __name__ == "__main__":
-    print("Don't run this directly test using pillow_fight.py")
+    current_script = os.path.basename(__file__)
+    driver_script = current_script.replace("_pillow_", "")
+    print(f"Don't run this script directly. Test using pillow_fight.py {current_script} or run the {driver_script} script")

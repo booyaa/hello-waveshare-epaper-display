@@ -25,6 +25,7 @@ def main(percentage=None):
         return image
 
     percentage = int(percentage)
+    # FIXME: refactor this ugly mess
     if percentage < 10:
         draw.text((20, 50), "Battery Empty!", font=font, fill=0)
         return image
@@ -43,21 +44,9 @@ def main(percentage=None):
         draw.rectangle((115, 40, 160, 90), outline=0, width=0, fill=0)
         draw.rectangle((165, 40, 210, 90), outline=0, width=0, fill=0)
 
-    # else:
-    # if percentage > 90:
-        # 100% battery
-        # draw.rectangle((15, 40, 220, 90), outline=0, width=0, fill=0)
-    # elif percentage >= 75 and percentage <= 90:
-    #     # 75% battery
-    #     draw.rectangle((15, 40, 170, 90), outline=0, width=0, fill=0)
-    # elif percentage >= 50 and percentage < 75:
-    #     # 50% battery
-    #     draw.rectangle((15, 40, 120, 90), outline=0, width=0, fill=0)
-    # elif percentage >= 25 and percentage < 50:
-    #     # 25% battery
-    #     draw.rectangle((15, 40, 70, 90), outline=0, width=0, fill=0)
-
     return image
 
 if __name__ == "__main__":
-    print("Don't run this directly, test using pillow_fight.py")
+    current_script = os.path.basename(__file__)
+    driver_script = current_script.replace("_pillow_", "")
+    print(f"Don't run this script directly. Test using pillow_fight.py {current_script} or run the {driver_script} script")
