@@ -6,10 +6,17 @@ A small test script for use with pillow_fight helper script.
 """
 
 import os
+import sys
 from PIL import Image, ImageDraw, ImageFont
 
-def main(percentage=None):
+def main():
     picdir = os.path.join((os.path.dirname(os.path.realpath(__file__))), 'lib', 'waveshare-epd', 'RaspberryPi_JetsonNano', 'python','pic')
+    libdir = os.path.join((os.path.dirname(os.path.realpath(__file__))), 'lib', 'waveshare-ups')
+
+    if os.path.exists(libdir):
+        sys.path.append(libdir)
+
+    import waveshare_ups
 
     font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 20)
     image = Image.new('1', (250, 122), 255)
@@ -20,6 +27,15 @@ def main(percentage=None):
     draw.rectangle((5, 30, 220, 100), outline=0, width=5)
     draw.rectangle((220, 50, 235, 80), outline=0, width=5, fill=0)
 
+    ina219 = waveshare_ups.INA219(addr=0x43) # FIXME: make address configurable
+    bus_voltage = ina219.getBusVoltage_V()   # voltage on V- (load side)
+    p = (bus_voltage - 3)/1.2*100
+    if(p > 100):p = 100
+    if(p < 0):p = 0
+    percentage = round(p)
+    print(percentage)
+
+     # draw battery level
     if percentage is None:
         draw.text((20, 50), "Err: missing % param!", font=font, fill=0)
         return image
