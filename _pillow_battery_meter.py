@@ -30,8 +30,9 @@ def main():
     ina219 = waveshare_ups.INA219(addr=0x43) # FIXME: make address configurable
     bus_voltage = ina219.getBusVoltage_V()   # voltage on V- (load side)
     current = ina219.getCurrent_mA()                   # current in mA
+    power = ina219.getPower_W()                        # power in W 
 
-    if round(current) == 0:
+    if round(current) == 0 and round(power)  == 0:
         draw.text((60,50), "Plugged In", font=font, fill=0)
         print("Plugged In")
     else:
