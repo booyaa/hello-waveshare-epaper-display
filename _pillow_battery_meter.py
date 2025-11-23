@@ -29,36 +29,42 @@ def main():
 
     ina219 = waveshare_ups.INA219(addr=0x43) # FIXME: make address configurable
     bus_voltage = ina219.getBusVoltage_V()   # voltage on V- (load side)
-    p = (bus_voltage - 3)/1.2*100
-    if(p > 100):p = 100
-    if(p < 0):p = 0
-    percentage = round(p)
-    print(percentage)
+    current = ina219.getCurrent_mA()                   # current in mA
 
-     # draw battery level
-    if percentage is None:
-        draw.text((20, 50), "Err: missing % param!", font=font, fill=0)
-        return image
+    if round(current) == 0:
+        draw.text((60,50), "Plugged In", font=font, fill=0)
+        print("Plugged In")
+    else:
+        p = (bus_voltage - 3)/1.2*100
+        if(p > 100):p = 100
+        if(p < 0):p = 0
+        percentage = round(p)
+        print(f"Battery: {percentage}%")
 
-    percentage = int(percentage)
-    # FIXME: refactor this ugly mess
-    if percentage < 10:
-        draw.text((20, 50), "Battery Empty!", font=font, fill=0)
-        return image
-    elif percentage > 10 and percentage < 26:
-        draw.rectangle((15, 40, 60, 90), outline=0, width=0, fill=0)
-    elif percentage >= 25 and percentage < 51:
-        draw.rectangle((15, 40, 60, 90), outline=0, width=0, fill=0)
-        draw.rectangle((65, 40, 110, 90), outline=0, width=0, fill=0)
-    elif percentage >= 50 and percentage < 76:
-        draw.rectangle((15, 40, 60, 90), outline=0, width=0, fill=0)
-        draw.rectangle((65, 40, 110, 90), outline=0, width=0, fill=0)
-        draw.rectangle((115, 40, 160, 90), outline=0, width=0, fill=0)
-    elif percentage >= 75:
-        draw.rectangle((15, 40, 60, 90), outline=0, width=0, fill=0)
-        draw.rectangle((65, 40, 110, 90), outline=0, width=0, fill=0)
-        draw.rectangle((115, 40, 160, 90), outline=0, width=0, fill=0)
-        draw.rectangle((165, 40, 210, 90), outline=0, width=0, fill=0)
+        # draw battery level
+        if percentage is None:
+            draw.text((20, 50), "Err: missing % param!", font=font, fill=0)
+            return image
+
+        percentage = int(percentage)
+        # FIXME: refactor this ugly mess
+        if percentage < 10:
+            draw.text((20, 50), "Battery Empty!", font=font, fill=0)
+            return image
+        elif percentage > 10 and percentage < 26:
+            draw.rectangle((15, 40, 60, 90), outline=0, width=0, fill=0)
+        elif percentage >= 25 and percentage < 51:
+            draw.rectangle((15, 40, 60, 90), outline=0, width=0, fill=0)
+            draw.rectangle((65, 40, 110, 90), outline=0, width=0, fill=0)
+        elif percentage >= 50 and percentage < 76:
+            draw.rectangle((15, 40, 60, 90), outline=0, width=0, fill=0)
+            draw.rectangle((65, 40, 110, 90), outline=0, width=0, fill=0)
+            draw.rectangle((115, 40, 160, 90), outline=0, width=0, fill=0)
+        elif percentage >= 75:
+            draw.rectangle((15, 40, 60, 90), outline=0, width=0, fill=0)
+            draw.rectangle((65, 40, 110, 90), outline=0, width=0, fill=0)
+            draw.rectangle((115, 40, 160, 90), outline=0, width=0, fill=0)
+            draw.rectangle((165, 40, 210, 90), outline=0, width=0, fill=0)
 
     return image
 
