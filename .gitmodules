@@ -1,3 +1,4 @@
 [submodule "lib/waveshare-epd"]
 	path = lib/waveshare-epd
-	url = git@github.com:waveshareteam/e-Paper.git
+	url = https://github.com/waveshareteam/e-Paper.git
+	ignore = dirty
