@@ -37,7 +37,7 @@ def main():
         epd.Clear()
 
         logging.info("Create a new bitmap")
-        image = module.get_image()
+        image = module.get_image() # FIXME: refactor as a class using https://www.danielmorell.com/blog/dynamically-calling-functions-in-python-safely
         image = image.rotate(180) # display is "upside down" when in enclosure
 
         logging.info("Push the bitmap to the display")

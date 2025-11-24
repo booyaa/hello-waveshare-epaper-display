@@ -32,7 +32,7 @@ def main():
         epd.Clear()
 
         logging.info("Create a new bitmap")
-        image = module.get_image()
+        image = module.get_image()  # FIXME: refactor as a class using https://www.danielmorell.com/blog/dynamically-calling-functions-in-python-safely
 
         logging.info("Push the bitmap to the display")
         epd.display(epd.getbuffer(image),epd.getbuffer(image))
