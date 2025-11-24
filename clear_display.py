@@ -11,12 +11,12 @@ libdir = os.path.join((os.path.dirname(os.path.realpath(__file__))), 'lib', 'wav
 if os.path.exists(libdir):
     sys.path.append(libdir)
 
-from waveshare_epd import epd2in13b_V4 # pyright: ignore[reportMissingImports] # added manually (see above)
 
 # DEBUG is noisy
 logging.basicConfig(level=logging.WARNING)
 
 def main():
+    from waveshare_epd import epd2in13b_V4 # pyright: ignore[reportMissingImports] # added manually (see above)
     try:
         logging.info("Clear the display to avoid burn in")
         epd = epd2in13b_V4.EPD()

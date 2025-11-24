@@ -12,11 +12,11 @@ libdir = os.path.join((os.path.dirname(os.path.realpath(__file__))), 'lib', 'wav
 if os.path.exists(libdir):
     sys.path.append(libdir)
 
-from waveshare_epd import epd2in13b_V4 # pyright: ignore[reportMissingImports] # added manually (see above)
-
 logging.basicConfig(level=logging.DEBUG)
 
 def main():
+    from waveshare_epd import epd2in13b_V4 # pyright: ignore[reportMissingImports] # added manually (see above)
+
     module_name = "get_image"
     script_to_import = "_pillow_hello_world.py"
     module = helpers.load_module_safely(module_name, script_to_import)
