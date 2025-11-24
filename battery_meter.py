@@ -18,7 +18,7 @@ from waveshare_epd import epd2in13b_V4 # pyright: ignore[reportMissingImports] #
 logging.basicConfig(level=logging.WARNING)
 
 def main():
-    module_name = "main"
+    module_name = "get_image"
     this_script_file_name = os.path.basename(__file__)
     script_to_import = f"_pillow_{this_script_file_name}"
     if not os.path.isfile(script_to_import):
@@ -27,8 +27,8 @@ def main():
     module = helpers.load_module_safely(module_name, script_to_import)
     params = sys.argv[1:] # FIXME: battery %
 
-    if not hasattr(module, 'main'):
-        print("The module must have a 'main' function.")
+    if not hasattr(module, module_name):
+        print(f"The module must have a '{module_name}' function.")
         sys.exit(1)
 
     try:

@@ -9,7 +9,7 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 import qrcode
 
-def main():
+def get_image():
     qr = qrcode.QRCode(
         version=1,
         box_size=10,

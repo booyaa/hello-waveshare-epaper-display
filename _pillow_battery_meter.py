@@ -9,7 +9,7 @@ import os
 import sys
 from PIL import Image, ImageDraw, ImageFont
 
-def main():
+def get_image():
     picdir = os.path.join((os.path.dirname(os.path.realpath(__file__))), 'lib', 'waveshare-epd', 'RaspberryPi_JetsonNano', 'python','pic')
     libdir = os.path.join((os.path.dirname(os.path.realpath(__file__))), 'lib', 'waveshare-ups')
 
@@ -30,7 +30,7 @@ def main():
     ina219 = waveshare_ups.INA219(addr=0x43) # FIXME: make address configurable
     bus_voltage = ina219.getBusVoltage_V()   # voltage on V- (load side)
     current = ina219.getCurrent_mA()                   # current in mA
-    power = ina219.getPower_W()                        # power in W 
+    power = ina219.getPower_W()                        # power in W
 
     if round(current/1000) == 0 and round(power)  == 0:
         draw.text((60,50), "Plugged In", font=font, fill=0)

@@ -17,12 +17,12 @@ from waveshare_epd import epd2in13b_V4 # pyright: ignore[reportMissingImports] #
 logging.basicConfig(level=logging.DEBUG)
 
 def main():
-    module_name = "main"
-    script_to_import = "hello_world.epd.py"
+    module_name = "get_image"
+    script_to_import = "_pillow_hello_world.py"
     module = helpers.load_module_safely(module_name, script_to_import)
 
-    if not hasattr(module, 'main'):
-        print("The module must have a 'main' function.")
+    if not hasattr(module, module_name):
+        print(f"The module must have a '{module_name}' function.")
         sys.exit(1)
 
     try:
