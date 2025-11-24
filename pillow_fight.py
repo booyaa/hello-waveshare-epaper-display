@@ -14,7 +14,7 @@ import helpers
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python3 pillow_fight.py <script_to_import>")
-        print("Example: python3 pillow_fight.py hello_world.epd.py")
+        print("Example: python3 pillow_fight.py _pillow_hello_world.py")
         sys.exit(1)
 
     module_name = "main"
