@@ -32,7 +32,7 @@ def main():
         epd.Clear()
 
         logging.info("Create a new bitmap")
-        image = module.main()
+        image = module.get_image()
 
         logging.info("Push the bitmap to the display")
         epd.display(epd.getbuffer(image),epd.getbuffer(image))

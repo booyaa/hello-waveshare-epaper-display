@@ -37,7 +37,7 @@ def main():
         epd.Clear()
 
         logging.info("Create a new bitmap")
-        image = module.main()
+        image = module.get_image()
         image = image.rotate(180) # display is "upside down" when in enclosure
 
         logging.info("Push the bitmap to the display")

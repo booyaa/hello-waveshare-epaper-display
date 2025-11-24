@@ -38,7 +38,7 @@ def main():
         epd.Clear()
 
         logging.info("Create a new bitmap")
-        image = module.main(*params)
+        image = module.get_image(*params)
 
         logging.info("Push the bitmap to the display")
 
